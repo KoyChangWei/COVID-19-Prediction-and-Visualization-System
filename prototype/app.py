@@ -374,10 +374,11 @@ def internal_error(error):
     }), 500
 
 if __name__ == '__main__':
-    print("🚀 Starting COVID-19 Analytics & Prediction Platform...")
-    print(f"📊 Model: {best_model_name}")
-    print(f"🏥 States: {len(MALAYSIAN_STATES)} Malaysian states")
-    print(f"🤖 Models available: {len(all_results)}")
-    print("=" * 50)
-    
-    app.run(debug=True, host='0.0.0.0', port=5000) 
+    # For local development and production
+    import os
+    port = int(os.environ.get('PORT', 5000))
+    debug = os.environ.get('FLASK_ENV') == 'development'
+    app.run(debug=debug, host='0.0.0.0', port=port)
+
+# For production deployment (Render will use this)
+app.config['ENV'] = 'production'

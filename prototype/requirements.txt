@@ -7,4 +7,5 @@ xgboost>=1.7.0
 imbalanced-learn>=0.10.0
 tensorflow>=2.10.0
 flask>=2.3.0
+gunicorn>=20.1.0
 pickle5>=0.0.11 
