@@ -1,1 +1,0 @@
-web: gunicorn --chdir prototype app:app 
